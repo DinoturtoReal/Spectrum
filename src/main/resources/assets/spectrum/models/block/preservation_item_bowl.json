@@ -1,8 +1,9 @@
 {
   "parent": "spectrum:templates/item_bowl",
   "textures": {
-    "base": "spectrum:block/preservation_stone_top_0",
-    "side": "spectrum:block/preservation_bricks",
-    "texture": "spectrum:block/preservation_item_bowl"
+    "top": "spectrum:block/preservation_item_bowl_top",
+    "side": "spectrum:block/preservation_item_bowl_side",
+    "inner": "spectrum:block/preservation_item_bowl_inner",
+    "bottom": "spectrum:block/preservation_item_bowl_bottom"
   }
 }

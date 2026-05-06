@@ -40,7 +40,7 @@ public class ColorPickerBlockEntity extends RandomizableContainerBlockEntity imp
 	public static final int INVENTORY_SIZE = 2; // input & output slots
 	public static final int INPUT_SLOT_ID = 0;
 	public static final int OUTPUT_SLOT_ID = 1;
-	public static final long TICKS_PER_CONVERSION = 5;
+	public static final long TICKS_PER_CONVERSION = 1;
 	public static final long STORAGE_AMOUNT = 64 * 64 * 64 * 100;
 	
 	public NonNullList<ItemStack> inventory;

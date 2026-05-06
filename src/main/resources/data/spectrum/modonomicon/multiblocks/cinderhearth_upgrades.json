@@ -2,67 +2,13 @@
   "type": "modonomicon:dense",
   "pattern": [
     [
-      "U___",
-      "____",
-      "____",
-      "____",
-      "U___"
-    ],
-    [
-      "C___",
-      "____",
-      "_H__",
-      "____",
-      "C___"
-    ],
-    [
-      "Xcc_",
-      "cGGX",
-      "__GX",
-      "cGGX",
-      "Xcc_"
-    ],
-    [
-      "_XX_",
-      "XLLX",
-      "XLLX",
-      "XLLX",
-      "_XX_"
-    ],
-    [
-      "____",
-      "_XX_",
-      "_0X_",
-      "_XX_",
-      "____"
+      "U_U",
+      "_0_",
+      "U_U"
     ]
   ],
   "mapping": {
-    "X": {
-      "type": "modonomicon:tag",
-      "display": "spectrum:polished_basalt",
-      "tag": "#spectrum:structure/bases"
-    },
-    "C": {
-      "type": "modonomicon:tag",
-      "display": "spectrum:chiseled_polished_basalt",
-      "tag": "#spectrum:structure/chiseled"
-    },
-    "c": {
-      "type": "modonomicon:tag",
-      "display": "spectrum:polished_basalt_crest",
-      "tag": "#spectrum:structure/crests"
-    },
-    "G": {
-      "type": "modonomicon:tag",
-      "display": "spectrum:amethyst_glass",
-      "tag": "spectrum:structure/transparent"
-    },
-    "L": {
-      "type": "modonomicon:block",
-      "block": "minecraft:lava"
-    },
-    "H": {
+    "0": {
       "type": "modonomicon:block",
       "display": "spectrum:cinderhearth[facing=south]",
       "block": "spectrum:cinderhearth"
@@ -70,11 +16,6 @@
     "U": {
       "type": "modonomicon:block",
       "block": "spectrum:upgrade_speed"
-    },
-    "0": {
-      "type": "modonomicon:tag",
-      "display": "spectrum:polished_basalt",
-      "tag": "#spectrum:structure/bases"
     }
   }
 }

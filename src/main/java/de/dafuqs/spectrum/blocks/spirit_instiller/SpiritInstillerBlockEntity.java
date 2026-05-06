@@ -37,13 +37,13 @@ public class SpiritInstillerBlockEntity extends InWorldInteractionBlockEntity im
 	private static final KeyFrame<Float> platformPos = (tickDelta, time) -> (float) (Math.sin((time + tickDelta + 15) / 23) + 6F) * 2F;
 	protected static final int INVENTORY_SIZE = 3; // 0: instiller stack; 1-2: item bowl stacks
 	public static final List<Vec3i> itemBowlOffsetsHorizontal = new ArrayList<>() {{
-		add(new Vec3i(0, 0, 2));
-		add(new Vec3i(0, 0, -2));
+		add(new Vec3i(0, 0, 1));
+		add(new Vec3i(0, 0, -1));
 	}};
 	
 	public static final List<Vec3i> itemBowlOffsetsVertical = new ArrayList<>() {{
-		add(new Vec3i(2, 0, 0));
-		add(new Vec3i(-2, 0, 0));
+		add(new Vec3i(1, 0, 0));
+		add(new Vec3i(-1, 0, 0));
 	}};
 	
 	private boolean inventoryChanged;
@@ -200,16 +200,16 @@ public class SpiritInstillerBlockEntity extends InWorldInteractionBlockEntity im
 		switch (spiritInstillerBlockEntity.multiblockRotation) {
 			case NONE, CLOCKWISE_180 -> {
 				if (right) {
-					return blockPos.above().east(2);
+					return blockPos.east(1);
 				} else {
-					return blockPos.above().west(2);
+					return blockPos.west(1);
 				}
 			}
 			default -> {
 				if (right) {
-					return blockPos.above().north(2);
+					return blockPos.north(1);
 				} else {
-					return blockPos.above().south(2);
+					return blockPos.south(1);
 				}
 			}
 		}
@@ -448,7 +448,7 @@ public class SpiritInstillerBlockEntity extends InWorldInteractionBlockEntity im
 	
 	@Override
 	public void calculateUpgrades() {
-		this.upgrades = Upgradeable.calculateUpgradeMods2(level, worldPosition, multiblockRotation, 4, 1, this.ownerUUID);
+		this.upgrades = Upgradeable.calculateUpgradeMods2(level, worldPosition, multiblockRotation, 1, 0, this.ownerUUID);
 		this.setChanged();
 	}
 	

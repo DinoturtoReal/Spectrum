@@ -46,10 +46,10 @@ public class FusionShrineBlock extends InWorldInteractionBlock {
 	protected static final VoxelShape SHAPE;
 	
 	public static final List<Vec3i> UPGRADE_BLOCK_OFFSETS = List.of(
-			new Vec3i(2, 0, 2),
-			new Vec3i(-2, 0, 2),
-			new Vec3i(2, 0, -2),
-			new Vec3i(-2, 0, -2)
+			new Vec3i(1, 0, 1),
+			new Vec3i(1, 0, -1),
+			new Vec3i(-1, 0, 1),
+			new Vec3i(-1, 0, -1)
 	);
 	
 	public FusionShrineBlock(Properties settings) {
@@ -94,21 +94,12 @@ public class FusionShrineBlock extends InWorldInteractionBlock {
 	
 	public static boolean verifyStructure(Level world, BlockPos blockPos, @Nullable ServerPlayer serverPlayerEntity) {
 		Multiblock multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.FUSION_SHRINE);
-		boolean valid = multiblock.validate(world, blockPos.below(), Rotation.NONE);
 		
-		if (valid) {
-			if (serverPlayerEntity != null) {
-				SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger(serverPlayerEntity, multiblock);
-			}
-		} else {
-			if (world.isClientSide) {
-				ModonomiconHelper.renderMultiblock(multiblock, SpectrumMultiblocks.FUSION_SHRINE_TEXT, blockPos.below(2), Rotation.NONE);
-			} else if (world.getBlockEntity(blockPos) instanceof FusionShrineBlockEntity fusionShrineBlockEntity) {
-				fusionShrineBlockEntity.scatterContents(world);
-			}
+		if (serverPlayerEntity != null) {
+			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger(serverPlayerEntity, multiblock);
 		}
 		
-		return valid;
+		return true;
 	}
 	
 	@Override

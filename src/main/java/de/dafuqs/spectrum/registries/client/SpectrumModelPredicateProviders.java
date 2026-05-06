@@ -43,6 +43,8 @@ public class SpectrumModelPredicateProviders {
 		registerSlotReservingItem(SpectrumItems.DRAGON_TALON.get());
 		registerSlotReservingItem(SpectrumItems.DRACONIC_TWINSWORD.get());
 		
+		registerOversizedItemPredicate(SpectrumItems.BEDROCK_AXE.get());
+		registerOversizedItemPredicate(SpectrumItems.BEDROCK_SWORD.get());
 		registerOversizedItemPredicate(SpectrumItems.MALACHITE_WORKSTAFF.get());
 		registerOversizedItemPredicate(SpectrumItems.MALACHITE_ULTRA_GREATSWORD.get());
 		registerOversizedItemPredicate(SpectrumItems.MALACHITE_CROSSBOW.get());

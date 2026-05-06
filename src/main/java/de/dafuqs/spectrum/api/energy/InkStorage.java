@@ -57,9 +57,8 @@ public interface InkStorage extends Clearable {
 		if (sourceAmount > 0) {
 			long destinationRoom = destination.getRoom(color);
 			if (destinationRoom > 0) {
-				long destinationAmount = destination.getEnergy(color);
-				if (sourceAmount > destinationAmount + 1) {
-					long transferAmount = Math.max(1, (sourceAmount - destinationAmount) / 32); // the constant here is simulating pressure flow
+				if (sourceAmount > 0) {
+					long transferAmount = Math.max(1, (sourceAmount / 32)); // the constant here is simulating pressure flow
 					transferAmount = Math.min(transferAmount, Math.min(sourceAmount, destinationRoom));
 					destination.addEnergy(color, transferAmount);
 					source.drainEnergy(color, transferAmount);

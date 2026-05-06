@@ -14,9 +14,15 @@ public class BedrockArmorCapeModel {
 		definition.getRoot().addOrReplaceChild(
 				"cape",
 				CubeListBuilder.create()
-						.texOffs(0, 80)
-						.addBox(-5.5F, 0.0F, -0.05F, 11.0F, 23.0F, 1.0F),
-				PartPose.offset(0.0F, 0.5F, 2.9F));
+						.texOffs(64, 14)
+						.addBox(-4.5F, 1.4167F, -0.6833F, 10.0F, 5.0F, 3.0F)
+						.texOffs(0, 49)
+						.addBox(-4.0F, -1.8333F, 0.1667F, 9.0F, 21.0F, 0.0F)
+						.texOffs(62, 78)
+						.addBox(-6.5F, 0.1667F, -0.0833F, 5.0F, 21.0F, 0.0F)
+						.texOffs(52, 68)
+						.addBox(2.5F, 0.1667F, -0.0833F, 5.0F, 21.0F, 0.0F),
+				PartPose.offset(-0.5F, 1.8333F, 2.6833F));
 		
 		return definition.getRoot().bake(128, 128);
 	}
@@ -25,8 +31,8 @@ public class BedrockArmorCapeModel {
 		MeshDefinition definition = new MeshDefinition();
 		
 		definition.getRoot().addOrReplaceChild("loincloth", CubeListBuilder.create()
-						.texOffs(62, 55)
-						.addBox(-3.5F, -8.35F, -2.5F, 7.0F, 14.0F, 1.0F),
+						.texOffs(72, 78)
+						.addBox(-3.5F, -8.35F, -2.5F, 7.0F, 15.0F, 0.0F),
 				PartPose.offset(0.0F, 18.0F, 0.0F));
 		
 		return definition.getRoot().bake(128, 128);

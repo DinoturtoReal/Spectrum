@@ -24,7 +24,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spectrum:vegetal"
+          "name": "spectrum:vegetal",
+          "conditions": []
         }
       ],
       "conditions": [
@@ -41,8 +42,8 @@
           "function": "minecraft:set_count",
           "count": {
             "type": "minecraft:uniform",
-            "min": 3.0,
-            "max": 5.0
+            "min": 3,
+            "max": 5
           },
           "add": false
         }

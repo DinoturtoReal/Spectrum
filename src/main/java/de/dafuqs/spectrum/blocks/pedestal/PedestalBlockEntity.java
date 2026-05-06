@@ -845,25 +845,25 @@ public class PedestalBlockEntity extends BaseContainerBlockEntity implements Mul
 		Multiblock multiblock;
 		
 		multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_COMPLEX);
-		if (multiblock.validate(level, worldPosition.below(), Rotation.NONE)) {
+		if (this.getPedestalTier().equals(PedestalRecipeTier.COMPLEX)) {
 			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger((ServerPlayer) this.getOwnerIfOnline(level), multiblock);
 			return PedestalRecipeTier.COMPLEX;
 		}
 		
 		multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_COMPLEX_WITHOUT_MOONSTONE);
-		if (multiblock.validate(level, worldPosition.below(), Rotation.NONE)) {
+		if (this.getPedestalTier().equals(PedestalRecipeTier.COMPLEX)) {
 			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger((ServerPlayer) this.getOwnerIfOnline(level), multiblock);
 			return PedestalRecipeTier.ADVANCED;
 		}
 		
 		multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_ADVANCED);
-		if (multiblock.validate(level, worldPosition.below(), Rotation.NONE)) {
+		if (this.getPedestalTier().equals(PedestalRecipeTier.ADVANCED)) {
 			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger((ServerPlayer) this.getOwnerIfOnline(level), multiblock);
 			return PedestalRecipeTier.ADVANCED;
 		}
 		
 		multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_SIMPLE);
-		if (multiblock.validate(level, worldPosition.below(), Rotation.NONE)) {
+		if (this.getPedestalTier().equals(PedestalRecipeTier.SIMPLE)) {
 			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger((ServerPlayer) this.getOwnerIfOnline(level), multiblock);
 			return PedestalRecipeTier.SIMPLE;
 		}
@@ -882,7 +882,7 @@ public class PedestalBlockEntity extends BaseContainerBlockEntity implements Mul
 	 */
 	@Override
 	public void calculateUpgrades() {
-		this.upgrades = Upgradeable.calculateUpgradeMods4(level, worldPosition, 3, 2, this.ownerUUID);
+		this.upgrades = Upgradeable.calculateUpgradeMods4(level, worldPosition, 1, 0, this.ownerUUID);
 		this.setChanged();
 	}
 	

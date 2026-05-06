@@ -128,7 +128,7 @@ public class TitrationBarrelBlockEntity extends BlockEntity implements Implement
 		} else {
 			tapTime = this.tapTime;
 		}
-		return tapTime - this.sealTime;
+		return (tapTime - this.sealTime) * 72;
 	}
 	
 	public long getSealSeconds() {

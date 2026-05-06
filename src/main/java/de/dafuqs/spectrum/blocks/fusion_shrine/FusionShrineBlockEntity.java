@@ -292,7 +292,7 @@ public class FusionShrineBlockEntity extends InWorldInteractionBlockEntity imple
 	
 	@Override
 	public void calculateUpgrades() {
-		this.upgrades = Upgradeable.calculateUpgradeMods4(level, worldPosition, 2, 0, this.ownerUUID);
+		this.upgrades = Upgradeable.calculateUpgradeMods4(level, worldPosition, 1, 0, this.ownerUUID);
 		this.setChanged();
 	}
 	

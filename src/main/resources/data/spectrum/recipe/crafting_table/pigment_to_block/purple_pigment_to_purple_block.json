@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": [
+      {
+        "item": "spectrum:purple_pigment"
+      }
+    ]
+  },
+  "result": {
+    "id": "spectrum:purple_block"
+  }
+}

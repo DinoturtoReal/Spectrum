@@ -122,7 +122,7 @@ public class CinderhearthBlockEntity extends BaseContainerBlockEntity implements
 	@Override
 	public void calculateUpgrades() {
 		if (level == null) return;
-		this.upgrades = Upgradeable.calculateUpgradeMods2(level, worldPosition, Support.rotationFromDirection(level.getBlockState(worldPosition).getValue(CinderhearthBlock.FACING)), 2, 1, 1, this.ownerUUID);
+		this.upgrades = Upgradeable.calculateUpgradeMods2(level, worldPosition, Support.rotationFromDirection(level.getBlockState(worldPosition).getValue(CinderhearthBlock.FACING)), 2, 1, 0, this.ownerUUID);
 		this.updateInClientWorld();
 		this.setChanged();
 	}

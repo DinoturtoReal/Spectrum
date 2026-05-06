@@ -9,6 +9,13 @@
           "name": "spectrum:neolith"
         }
       ],
+      "functions": [
+        {
+          "function": "minecraft:apply_bonus",
+          "enchantment": "minecraft:fortune",
+          "formula": "minecraft:ore_drops"
+        }
+      ],
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
@@ -41,8 +48,8 @@
           "function": "minecraft:set_count",
           "count": {
             "type": "minecraft:uniform",
-            "min": 3.0,
-            "max": 5.0
+            "min": 3,
+            "max": 5
           },
           "add": false
         }

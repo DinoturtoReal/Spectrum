@@ -41,10 +41,10 @@ public class PedestalBlock extends BaseEntityBlock implements RedstonePoweredBlo
 	private final PedestalVariant variant;
 	
 	public static final List<Vec3i> UPGRADE_BLOCK_OFFSETS = List.of(
-			new Vec3i(3, -2, 3),
-			new Vec3i(-3, -2, 3),
-			new Vec3i(3, -2, -3),
-			new Vec3i(-3, -2, -3)
+			new Vec3i(1, 0, 1),
+			new Vec3i(1, 0, -1),
+			new Vec3i(-1, 0, 1),
+			new Vec3i(-1, 0, -1)
 	);
 	
 	public PedestalBlock(Properties settings, PedestalVariant variant) {
@@ -70,12 +70,12 @@ public class PedestalBlock extends BaseEntityBlock implements RedstonePoweredBlo
 	}
 	
 	public static void clearCurrentlyRenderedMultiBlock(Level world) {
-		if (world.isClientSide) {
+		/*if (world.isClientSide) {
 			ModonomiconHelper.clearRenderedMultiblock(SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_SIMPLE));
 			ModonomiconHelper.clearRenderedMultiblock(SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_ADVANCED));
 			ModonomiconHelper.clearRenderedMultiblock(SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_COMPLEX));
 			ModonomiconHelper.clearRenderedMultiblock(SpectrumMultiblocks.get(SpectrumMultiblocks.PEDESTAL_COMPLEX_WITHOUT_MOONSTONE));
-		}
+		}*/
 	}
 	
 	@Override

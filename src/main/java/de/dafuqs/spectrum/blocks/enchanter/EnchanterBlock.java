@@ -5,6 +5,7 @@ import com.mojang.serialization.*;
 import de.dafuqs.spectrum.*;
 import de.dafuqs.spectrum.api.item.*;
 import de.dafuqs.spectrum.blocks.*;
+import de.dafuqs.spectrum.blocks.item_bowl.*;
 import de.dafuqs.spectrum.blocks.upgrade.*;
 import de.dafuqs.spectrum.compat.modonomicon.*;
 import de.dafuqs.spectrum.progression.*;
@@ -31,10 +32,10 @@ public class EnchanterBlock extends InWorldInteractionBlock {
 	public static final ResourceLocation UNLOCK_IDENTIFIER = SpectrumCommon.locate("midgame/build_enchanting_structure");
 	
 	public static final List<Vec3i> UPGRADE_BLOCK_OFFSETS = List.of(
-			new Vec3i(3, 0, 3),
-			new Vec3i(-3, 0, 3),
-			new Vec3i(3, 0, -3),
-			new Vec3i(-3, 0, -3)
+			new Vec3i(1, 0, 1),
+			new Vec3i(-1, 0, 1),
+			new Vec3i(1, 0, -1),
+			new Vec3i(-1, 0, -1)
 	);
 	
 	public EnchanterBlock(Properties settings) {
@@ -56,14 +57,23 @@ public class EnchanterBlock extends InWorldInteractionBlock {
 	
 	public static boolean verifyStructure(Level world, BlockPos blockPos, @Nullable ServerPlayer serverPlayerEntity) {
 		Multiblock multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.ENCHANTER);
-		boolean valid = multiblock.validate(world, blockPos.below(3), Rotation.NONE);
 		
-		if (valid) {
-			if (serverPlayerEntity != null) {
-				SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger(serverPlayerEntity, multiblock);
-			}
-		} else if (world.isClientSide) {
-			ModonomiconHelper.renderMultiblock(SpectrumMultiblocks.get(SpectrumMultiblocks.ENCHANTER), SpectrumMultiblocks.ENCHANTER_TEXT, blockPos.below(4), Rotation.NONE);
+		boolean northEastBlock = world.getBlockEntity(blockPos.north(2).east()) instanceof ItemBowlBlockEntity;
+		boolean eastNorthBlock = world.getBlockEntity(blockPos.north().east(2)) instanceof ItemBowlBlockEntity;
+		boolean eastSouthBlock = world.getBlockEntity(blockPos.south().east(2)) instanceof ItemBowlBlockEntity;
+		boolean southEastBlock = world.getBlockEntity(blockPos.south(2).east()) instanceof ItemBowlBlockEntity;
+		boolean southWestBlock = world.getBlockEntity(blockPos.south(2).west()) instanceof ItemBowlBlockEntity;
+		boolean westSouthBlock = world.getBlockEntity(blockPos.south().west(2)) instanceof ItemBowlBlockEntity;
+		boolean westNorthBlock = world.getBlockEntity(blockPos.north().west(2)) instanceof ItemBowlBlockEntity;
+		boolean northWestBlock = world.getBlockEntity(blockPos.north(2).west()) instanceof ItemBowlBlockEntity;
+		
+		boolean valid = false;
+		if (northEastBlock && eastNorthBlock && eastSouthBlock && southEastBlock && southWestBlock && westSouthBlock && westNorthBlock && northWestBlock) {
+			valid = true;
+		}
+		
+		if (serverPlayerEntity != null && valid) {
+			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger(serverPlayerEntity, multiblock);
 		}
 		
 		return valid;

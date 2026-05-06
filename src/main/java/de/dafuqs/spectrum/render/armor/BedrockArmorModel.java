@@ -42,112 +42,172 @@ public class BedrockArmorModel extends HumanoidArmorModel<LivingEntity> {
 		head.addOrReplaceChild(
 				"armor_head",
 				CubeListBuilder.create()
-						.texOffs(0, 20)
-						.addBox(-4.5F, -8.5F, -4.5F, 9.0F, 9.0F, 9.0F)
 						.texOffs(0, 0)
-						.addBox(-5.0F, -9.0F, -5.0F, 10.0F, 10.0F, 10.0F),
+						.addBox(-4.5F, -8.625F, -4.5F, 9.0F, 9.0F, 9.0F, new CubeDeformation(0.3F)),
 				PartPose.ZERO
 		);
 		
-		var body = root.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.ZERO);
+		var head_plume = head.addOrReplaceChild("head_plume", CubeListBuilder.create(), PartPose.ZERO);
+		
+		head_plume.addOrReplaceChild(
+				"armor_head_plume",
+				CubeListBuilder.create()
+						.texOffs(38, 61)
+						.addBox(0.0F, -0.0806F, 0.1517F, 0.0F, 11.0F, 7.0F),
+				PartPose.offsetAndRotation(0.0F, -11.25F, 2.0F, 0.4363F, 0.0F, 0.0F)
+		);
+		
+		var visor = head.addOrReplaceChild(
+				"armor_visor",
+				CubeListBuilder.create()
+						.texOffs(30, 11)
+						.addBox(-5.0F, -3.0F, -6.8F, 10.0F, 5.0F, 7.0F, new CubeDeformation(0.125F)),
+				PartPose.offsetAndRotation(0.0F, -6.0F, 1.5F, -0.1745F, 0.0F, 0.0F)
+		);
+		
+		var visor_frill_left = visor.addOrReplaceChild(
+				"armor_visor_frill_left",
+				CubeListBuilder.create()
+						.texOffs(38, 14)
+						.addBox(1.25F, -4.0F, -4.5F, 0.0F, 8.0F, 9.0F, new CubeDeformation(0, 0.125F, 0.125F)),
+				PartPose.offsetAndRotation(5.1F, -2.0F, 1.2F, 0.5796F, 0.2344F, 0.1939F)
+		);
+		
+		var visor_frill_right = visor.addOrReplaceChild(
+				"armor_visor_frill_right",
+				CubeListBuilder.create()
+						.texOffs(56, 14)
+						.addBox(-1.25F, -4.0F, -4.5F, 0.0F, 8.0F, 9.0F, new CubeDeformation(0, 0.125F, 0.125F)),
+				PartPose.offsetAndRotation(-5.1F, -2.0F, 1.2F, 0.5796F, -0.2344F, -0.1939F)
+		);
+		
+		var body = root.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, 0.5F, 0.5F));
 		
 		body.addOrReplaceChild(
 				"armor_body",
 				CubeListBuilder.create()
-						.texOffs(31, 33)
-						.addBox(-4.5F, -0.5F, -2.5F, 9.0F, 13.0F, 5.0F)
-						.texOffs(36, 20)
-						.addBox(-5.0F, 0.0F, -3.0F, 10.0F, 10.0F, 3.0F),
+						.texOffs(0, 31)
+						.addBox(-4.5F, -1.0F, -2.5F, 9.0F, 13.0F, 5.0F, new CubeDeformation(0.25F))
+						.texOffs(28, 41)
+						.addBox(-4.5F, -1.0F, -3.75F, 9.0F, 12.0F, 3.0F),
 				PartPose.ZERO
+		);
+		
+		var body_roll = body.addOrReplaceChild(
+				"armor_body_roll",
+				CubeListBuilder.create()
+						.texOffs(28, 31)
+						.addBox(-5.5F, -3.5F, -1.25F, 12.0F, 5.0F, 5.0F),
+				PartPose.offsetAndRotation(-0.5F, 1.5F, 2.5F, -0.7854F, 0.0F, 0.0F)
+		);
+		
+		var body_collar = body.addOrReplaceChild(
+				"armor_body_collar",
+				CubeListBuilder.create()
+						.texOffs(0, 83)
+						.addBox(-4.5F, -1.5F, -4.25F, 9.0F, 5.0F, 7.0F, new CubeDeformation(0.25F))
+						.texOffs(0, 18)
+						.addBox(-5.5F, -1.5F, -5.25F, 11.0F, 5.0F, 8.0F, new CubeDeformation(0.25F)),
+				PartPose.offsetAndRotation(0.0F, -1.0F, 0.0F, 0.1745F, 0.0F, 0.0F)
 		);
 		
 		var rightArm = root.addOrReplaceChild(
 				"right_arm",
 				CubeListBuilder.create(),
-				PartPose.ZERO
+				PartPose.offset(-4.0F, 2.0F, 0.0F)
 		);
 		
 		var armorRightArm = rightArm.addOrReplaceChild(
 				"armor_right_arm",
 				CubeListBuilder.create()
-						.texOffs(22, 51)
-						.addBox(-4.25F, -2.5F, -2.5F, 5.0F, 13.0F, 5.0F),
-				PartPose.offset(1.0F, 0.0F, 0.0F)
+						.texOffs(18, 56)
+						.addBox(-4.0F, -1.5F, -2.5F, 5.0F, 12.0F, 5.0F, new CubeDeformation(0.175F))
+						.texOffs(56, 35)
+						.addBox(-4.5F, -1.5F, -3.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.175F)),
+				PartPose.ZERO
 		);
 		
 		armorRightArm.addOrReplaceChild(
 				"armor_right_arm_extra",
 				CubeListBuilder.create()
-						.texOffs(57, 45)
-						.addBox(-4.0F, -1.5F, -3.0F, 6.0F, 4.0F, 6.0F, new CubeDeformation(0.10F)),
-				PartPose.offsetAndRotation(-1.5F, -2.0F, 0.0F, 0.0F, 0.0F, -0.4363F)
+						.texOffs(74, 22)
+						.addBox(1.0F, -1.0F, -2.5F, 2.0F, 5.0F, 7.0F)
+						.texOffs(57, 3)
+						.addBox(-4.0F, 0.0F, -2.5F, 5.0F, 4.0F, 7.0F),
+				PartPose.offsetAndRotation(-3.0F, -2.5F, -1.0F, 0.0F, 0.0F, -0.2618F)
 		);
 		
 		var leftArm = root.addOrReplaceChild(
 				"left_arm",
 				CubeListBuilder.create(),
-				PartPose.ZERO
+				PartPose.offset(4.0F, 2.5F, 0.0F)
 		);
 		
 		var armorLeftArm = leftArm.addOrReplaceChild(
 				"armor_left_arm",
 				CubeListBuilder.create()
-						.texOffs(40, 0)
-						.addBox(-1.5F, -2.5F, -2.5F, 5.0F, 13.0F, 5.0F),
+						.texOffs(47, 51)
+						.addBox(-1.0F, -2.0F, -2.5F, 5.0F, 12.0F, 5.0F, new CubeDeformation(0.175F))
+						.texOffs(16, 73)
+						.addBox(0.5F, 0.0F, -3.0F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.175F)),
 				PartPose.ZERO
 		);
 		
 		armorLeftArm.addOrReplaceChild(
 				"armor_left_arm_extra",
 				CubeListBuilder.create()
-						.texOffs(62, 20)
-						.addBox(-1.75F, -1.25F, -2.0F, 5.0F, 1.0F, 5.0F, new CubeDeformation(0.10F))
-						.texOffs(54, 12)
-						.addBox(-1.75F, -0.25F, -2.5F, 6.0F, 2.0F, 6.0F, new CubeDeformation(0.10F)),
-				PartPose.offsetAndRotation(1.0F, -2.25F, -0.5F, 0.0F, 0.0F, 0.4363F)
+						.texOffs(74, 0)
+						.addBox(-0.5F, -5.0F, -3.0F, 5.0F, 1.0F, 6.0F)
+						.texOffs(36, 0)
+						.addBox(-1.5F, -4.0F, -3.5F, 7.0F, 3.0F, 7.0F),
+				PartPose.offsetAndRotation(0.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.2618F)
 		);
 		
 		var leftLeg = root.addOrReplaceChild(
 				"left_leg",
 				CubeListBuilder.create(),
-				PartPose.ZERO
+				PartPose.offset(2.0F, 12.0F, 0.0F)
 		);
 		
 		leftLeg.addOrReplaceChild(
 				"left_leg_armor",
 				CubeListBuilder.create()
-						.texOffs(42, 51)
-						.addBox(-2.5F, -0.15F, -2.5F, 5.0F, 10.0F, 5.0F, new CubeDeformation(0.15F)),
+						.texOffs(67, 47)
+						.addBox(-2.5F, -0.5F, -2.5F, 5.0F, 10.0F, 5.0F, new CubeDeformation(0.1F)),
 				PartPose.ZERO
 		);
 		
 		leftLeg.addOrReplaceChild(
 				"left_boot",
 				CubeListBuilder.create()
-						.texOffs(60, 0)
-						.addBox(-2.5F, 9.15F, -2.5F, 5.0F, 3.0F, 5.0F, new CubeDeformation(0.25F)),
+						.texOffs(82, 42)
+						.addBox(-2.5F, 9.25f, -2.5F, 5.0F, 3.0F, 5.0F, new CubeDeformation(0.1F))
+						.texOffs(32, 80)
+						.addBox(-2.25F, 5.0F, -1.25F, 5.0F, 6.0F, 4.0F, new CubeDeformation(0.125F)).mirror(false),
 				PartPose.ZERO
 		);
 		
 		var rightLeg = root.addOrReplaceChild(
 				"right_leg",
 				CubeListBuilder.create(),
-				PartPose.ZERO
+				PartPose.offset(2.0F, 12.0F, 0.0F)
 		);
 		
 		rightLeg.addOrReplaceChild(
 				"right_leg_armor",
 				CubeListBuilder.create()
-						.texOffs(59, 28)
-						.addBox(-2.5F, -0.15F, -2.5F, 5.0F, 10.0F, 5.0F, new CubeDeformation(0.149F)),
+						.texOffs(62, 63)
+						.addBox(-2.5F, -0.5F, -2.5F, 5.0F, 10.0F, 5.0F, new CubeDeformation(0.1F)),
 				PartPose.ZERO
 		);
 		
 		rightLeg.addOrReplaceChild(
 				"right_boot",
 				CubeListBuilder.create()
-						.texOffs(0, 61)
-						.addBox(-2.5F, 9.15F, -2.5F, 5.0F, 3.0F, 5.0F, new CubeDeformation(0.249F)),
+						.texOffs(32, 80)
+						.addBox(-2.75F, 5.0F, -1.25F, 5.0F, 6.0F, 4.0F, new CubeDeformation(0.1F))
+						.texOffs(80, 34)
+						.addBox(-2.5F, 9.25f, -2.5F, 5.0F, 3.0F, 5.0F, new CubeDeformation(0.125F)),
 				PartPose.ZERO
 		);
 		

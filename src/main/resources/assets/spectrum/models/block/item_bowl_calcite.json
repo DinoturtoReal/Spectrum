@@ -1,8 +1,9 @@
 {
   "parent": "spectrum:templates/item_bowl",
   "textures": {
-    "base": "spectrum:block/polished_calcite",
-    "side": "spectrum:block/polished_calcite_pillar_side",
-    "texture": "spectrum:block/item_bowl_calcite"
+    "top": "spectrum:block/item_bowl_calcite_top",
+    "side": "spectrum:block/item_bowl_calcite_side",
+    "inner": "spectrum:block/item_bowl_calcite_inner",
+    "bottom": "spectrum:block/item_bowl_calcite_bottom"
   }
 }

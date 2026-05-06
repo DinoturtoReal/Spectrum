@@ -14,8 +14,10 @@
           "condition": "minecraft:survives_explosion"
         },
         {
-          "condition": "minecraft:random_chance",
-          "chance": 0.334
+          "condition": "minecraft:random_chance_with_enchanted_bonus",
+          "unenchanted_chance": 0.334,
+          "enchanted_chance": 1,
+          "enchantment": "minecraft:fortune"
         }
       ]
     },
@@ -31,9 +33,9 @@
         {
           "condition": "spectrum:sleepers_nearby",
           "range_blocks": 20,
-          "lerp_min": 0.0005,
-          "lerp_max": 0.004,
-          "sleeping_entity_count_for_max": 16
+          "lerp_min": 0.01,
+          "lerp_max": 0.01,
+          "sleeping_entity_count_for_max": 1
         }
       ]
     }

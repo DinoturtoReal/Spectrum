@@ -37,14 +37,14 @@ public class CinderhearthBlock extends BaseEntityBlock {
 	
 	// Positions to check on place / destroy to upgrade those blocks upgrade counts
 	final static List<Vec3i> UPGRADE_BLOCK_OFFSETS = List.of(
-			new Vec3i(1, -1, 2),
-			new Vec3i(-1, -1, 2),
-			new Vec3i(1, -1, -2),
-			new Vec3i(-1, -1, -2),
-			new Vec3i(2, -1, 1),
-			new Vec3i(-2, -1, 1),
-			new Vec3i(2, -1, -1),
-			new Vec3i(-2, -1, -1)
+			new Vec3i(1, 0, 2),
+			new Vec3i(-1, 0, 2),
+			new Vec3i(1, 0, -2),
+			new Vec3i(-1, 0, -2),
+			new Vec3i(2, 0, 1),
+			new Vec3i(-2, 0, 1),
+			new Vec3i(2, 0, -1),
+			new Vec3i(-2, 0, -1)
 	);
 	
 	public CinderhearthBlock(Properties settings) {
@@ -192,27 +192,11 @@ public class CinderhearthBlock extends BaseEntityBlock {
 	}
 	
 	public static CinderhearthBlockEntity.CinderHearthStructureType verifyStructure(Level world, @NotNull BlockPos blockPos, @Nullable ServerPlayer serverPlayerEntity) {
-		Rotation rotation = Support.rotationFromDirection(world.getBlockState(blockPos).getValue(FACING).getOpposite());
 		
 		Multiblock multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.CINDERHEARTH);
-		CinderhearthBlockEntity.CinderHearthStructureType completedStructure = CinderhearthBlockEntity.CinderHearthStructureType.NONE;
+		CinderhearthBlockEntity.CinderHearthStructureType completedStructure = CinderhearthBlockEntity.CinderHearthStructureType.WITH_LAVA;
 		
-		if (multiblock.validate(world, blockPos.below(3), rotation)) {
-			completedStructure = CinderhearthBlockEntity.CinderHearthStructureType.WITH_LAVA;
-		} else {
-			multiblock = SpectrumMultiblocks.get(SpectrumMultiblocks.CINDERHEARTH_WITHOUT_LAVA);
-			if (multiblock.validate(world, blockPos.below(3), rotation)) {
-				completedStructure = CinderhearthBlockEntity.CinderHearthStructureType.WITHOUT_LAVA;
-			}
-		}
-		
-		boolean structureValid = completedStructure != CinderhearthBlockEntity.CinderHearthStructureType.NONE;
-		
-		if (world.isClientSide) {
-			if (!structureValid) {
-				ModonomiconHelper.renderMultiblock(SpectrumMultiblocks.get(SpectrumMultiblocks.CINDERHEARTH), SpectrumMultiblocks.CINDERHEARTH_TEXT, blockPos.below(4), rotation);
-			}
-		} else if (structureValid && serverPlayerEntity != null) {
+		if (serverPlayerEntity != null) {
 			SpectrumAdvancementCriteria.COMPLETED_MULTIBLOCK.trigger(serverPlayerEntity, multiblock);
 		}
 		

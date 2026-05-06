@@ -242,23 +242,23 @@ public class SpectrumItems {
 	public static final DeferredItem<Item> RAW_AZURITE = register("raw_azurite", () -> new CloakedItemWithLoomPattern(IS.of(), SpectrumBlocks.AZURITE_ORE.get().getCloakAdvancementIdentifier(), BLUE_DYE, SpectrumBannerPatternKeys.RAW_AZURITE));
 	public static final DeferredItem<Item> PURE_AZURITE = register("pure_azurite", () -> new CloakedItem(IS.of(), SpectrumBlocks.AZURITE_ORE.get().getCloakAdvancementIdentifier(), BLUE_DYE));
 	public static final DeferredItem<CloakedItem> PALTAERIA_FRAGMENTS = register("paltaeria_fragments", () -> new CloakedItem(IS.of().component(SpectrumDataComponentTypes.GRAVITABLE, 0.00125F), SpectrumBlocks.PALTAERIA_ORE.get().getCloakAdvancementIdentifier(), CYAN_DYE));
-	public static final DeferredItem<CloakedItem> PALTAERIA_GEM = register("paltaeria_gem", () -> new CloakedItem(IS.of(16).component(SpectrumDataComponentTypes.GRAVITABLE, 0.01F), SpectrumBlocks.PALTAERIA_ORE.get().getCloakAdvancementIdentifier(), CYAN_DYE));
+	public static final DeferredItem<CloakedItem> PALTAERIA_GEM = register("paltaeria_gem", () -> new CloakedItem(IS.of(64).component(SpectrumDataComponentTypes.GRAVITABLE, 0.01F), SpectrumBlocks.PALTAERIA_ORE.get().getCloakAdvancementIdentifier(), CYAN_DYE));
 	public static final DeferredItem<CloakedItem> STRATINE_FRAGMENTS = register("stratine_fragments", () -> new CloakedItem(IS.of().fireResistant().component(SpectrumDataComponentTypes.GRAVITABLE, -0.00125F), SpectrumBlocks.STRATINE_ORE.get().getCloakAdvancementIdentifier(), RED_DYE));
-	public static final DeferredItem<CloakedItem> STRATINE_GEM = register("stratine_gem", () -> new CloakedItem(IS.of(16).fireResistant().component(SpectrumDataComponentTypes.GRAVITABLE, -0.01F), SpectrumBlocks.STRATINE_ORE.get().getCloakAdvancementIdentifier(), RED_DYE));
+	public static final DeferredItem<CloakedItem> STRATINE_GEM = register("stratine_gem", () -> new CloakedItem(IS.of(64).fireResistant().component(SpectrumDataComponentTypes.GRAVITABLE, -0.01F), SpectrumBlocks.STRATINE_ORE.get().getCloakAdvancementIdentifier(), RED_DYE));
 	public static final DeferredItem<Item> PYRITE_CHUNK = register("pyrite_chunk", () -> new Item(IS.of()));
 	public static final DeferredItem<Item> DRAGONBONE_CHUNK = register("dragonbone_chunk", () -> new CloakedItem(IS.of(Rarity.UNCOMMON).component(SpectrumDataComponentTypes.DAMAGE_IMMUNE, List.of(DamageTypeTags.IS_EXPLOSION)), SpectrumAdvancements.BREAK_CRACKED_DRAGONBONE, GRAY_DYE));
 	public static final DeferredItem<Item> BONE_ASH = register("bone_ash", () -> new CloakedItem(IS.of(Rarity.UNCOMMON), SpectrumAdvancements.BREAK_CRACKED_DRAGONBONE, GRAY_DYE));
 	public static final DeferredItem<Item> RESPLENDENT_FEATHER = register("resplendent_feather", () -> new CloakedItem(IS.of(Rarity.UNCOMMON), SpectrumAdvancements.PLUCK_RESPLENDENT_FEATHER, RED_DYE));
 	public static final DeferredItem<Item> RAW_BLOODSTONE = register("raw_bloodstone", () -> new CloakedItem(IS.of(Rarity.UNCOMMON), SpectrumAdvancements.PLUCK_RESPLENDENT_FEATHER, RED_DYE));
 	public static final DeferredItem<Item> PURE_BLOODSTONE = register("pure_bloodstone", () -> new CloakedItem(IS.of(Rarity.UNCOMMON), SpectrumAdvancements.PLUCK_RESPLENDENT_FEATHER, RED_DYE));
-	public static final DeferredItem<Item> DOWNSTONE_FRAGMENTS = register("downstone_fragments", () -> new CloakedItem(IS.of(16, Rarity.UNCOMMON), SpectrumAdvancements.FIND_EXCAVATION_SITE, LIGHT_GRAY_DYE));
-	public static final DeferredItem<Item> RESONANCE_SHARD = register("resonance_shard", () -> new CloakedItem(IS.of(16, Rarity.UNCOMMON), SpectrumAdvancements.STRIKE_UP_HUMMINGSTONE_HYMN, LIGHT_BLUE_DYE));
+	public static final DeferredItem<Item> DOWNSTONE_FRAGMENTS = register("downstone_fragments", () -> new CloakedItem(IS.of(64, Rarity.UNCOMMON), SpectrumAdvancements.FIND_EXCAVATION_SITE, LIGHT_GRAY_DYE));
+	public static final DeferredItem<Item> RESONANCE_SHARD = register("resonance_shard", () -> new CloakedItem(IS.of(64, Rarity.UNCOMMON), SpectrumAdvancements.STRIKE_UP_HUMMINGSTONE_HYMN, LIGHT_BLUE_DYE));
 	public static final DeferredItem<Item> AETHER_VESTIGES = register("aether_vestiges", () -> new AetherVestigesItem(IS.of(1, Rarity.EPIC).fireResistant(), "item.spectrum.aether_vestiges.tooltip"));
 	
 	public static final DeferredItem<Item> QUITOXIC_POWDER = register("quitoxic_powder", () -> new CloakedItem(IS.of(), SpectrumAdvancements.REVEAL_QUITOXIC_REEDS, PURPLE_DYE));
 	public static final DeferredItem<Item> STORM_STONE = register("storm_stone", () -> new StormStoneItem(IS.of(), SpectrumAdvancements.REVEAL_STORM_STONES, YELLOW_DYE));
 	public static final DeferredItem<Item> MERMAIDS_GEM = register("mermaids_gem", () -> new MermaidsGemItem(SpectrumBlocks.MERMAIDS_BRUSH.get(), IS.of().component(SpectrumDataComponentTypes.FLUID_CONTENT, SimpleFluidContent.copyOf(new FluidStack(Fluids.WATER, 1000)))));
-	public static final DeferredItem<CloakedItem> STAR_FRAGMENT = register("star_fragment", () -> new CloakedItem(IS.of(16), SpectrumAdvancements.UNLOCK_SHOOTING_STARS, PURPLE_DYE));
+	public static final DeferredItem<CloakedItem> STAR_FRAGMENT = register("star_fragment", () -> new CloakedItem(IS.of(64), SpectrumAdvancements.UNLOCK_SHOOTING_STARS, PURPLE_DYE));
 	public static final DeferredItem<Item> STARDUST = register("stardust", () -> new CloakedItemWithLoomPattern(IS.of(), SpectrumAdvancements.UNLOCK_SHOOTING_STARS, PURPLE_DYE, SpectrumBannerPatternKeys.SHIMMER));
 	public static final DeferredItem<Item> ASH_FLAKES = register("ash_flakes", () -> new AshItem(IS.of()));
 	

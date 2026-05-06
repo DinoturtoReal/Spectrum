@@ -52,14 +52,14 @@ public class EnchanterBlockEntity extends InWorldInteractionBlockEntity implemen
 	public static final String CYCLING = "container.spectrum.rei.enchantment_upgrade.button";
 	
 	public static final List<Vec3i> ITEM_BOWL_OFFSETS = new ArrayList<>() {{
-		add(new Vec3i(5, 0, -3));
-		add(new Vec3i(5, 0, 3));
-		add(new Vec3i(3, 0, 5));
-		add(new Vec3i(-3, 0, 5));
-		add(new Vec3i(-5, 0, 3));
-		add(new Vec3i(-5, 0, -3));
-		add(new Vec3i(-3, 0, -5));
-		add(new Vec3i(3, 0, -5));
+		add(new Vec3i(-1, 0, 2));
+		add(new Vec3i(1, 0, 2));
+		add(new Vec3i(2, 0, 1));
+		add(new Vec3i(2, 0, -1));
+		add(new Vec3i(1, 0, -2));
+		add(new Vec3i(-1, 0, -2));
+		add(new Vec3i(-2, 0, -1));
+		add(new Vec3i(-2, 0, 1));
 	}};
 	
 	public static final int REQUIRED_TICKS_FOR_EACH_EXPERIENCE_POINT = 4;
@@ -773,14 +773,14 @@ public class EnchanterBlockEntity extends InWorldInteractionBlockEntity implemen
 		virtualInventory = new EnchanterInventory(
 				this.getItem(0), // center item
 				this.getItem(1), // knowledge gem
-				getItemBowlStack(level, worldPosition.offset(5, 0, -3)),
-				getItemBowlStack(level, worldPosition.offset(5, 0, 3)),
-				getItemBowlStack(level, worldPosition.offset(3, 0, 5)),
-				getItemBowlStack(level, worldPosition.offset(-3, 0, 5)),
-				getItemBowlStack(level, worldPosition.offset(-5, 0, 3)),
-				getItemBowlStack(level, worldPosition.offset(-5, 0, -3)),
-				getItemBowlStack(level, worldPosition.offset(-3, 0, -5)),
-				getItemBowlStack(level, worldPosition.offset(3, 0, -5))
+				getItemBowlStack(level, worldPosition.offset(-1, 0, 2)),
+				getItemBowlStack(level, worldPosition.offset(1, 0, 2)),
+				getItemBowlStack(level, worldPosition.offset(2, 0, 1)),
+				getItemBowlStack(level, worldPosition.offset(2, 0, -1)),
+				getItemBowlStack(level, worldPosition.offset(1, 0, -2)),
+				getItemBowlStack(level, worldPosition.offset(-1, 0, -2)),
+				getItemBowlStack(level, worldPosition.offset(-2, 0, -1)),
+				getItemBowlStack(level, worldPosition.offset(-2, 0, 1))
 		);
 		
 		virtualInventory.setChanged();
@@ -829,7 +829,7 @@ public class EnchanterBlockEntity extends InWorldInteractionBlockEntity implemen
 	
 	@Override
 	public void calculateUpgrades() {
-		this.upgrades = Upgradeable.calculateUpgradeMods4(level, worldPosition, 3, 0, this.ownerUUID);
+		this.upgrades = Upgradeable.calculateUpgradeMods4(level, worldPosition, 1, 0, this.ownerUUID);
 		this.setChanged();
 	}
 	
